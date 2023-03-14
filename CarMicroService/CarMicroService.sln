@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarService", "CarService\CarService.csproj", "{449B1CE7-DD18-4CE6-857C-1A08A3AF5128}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarMicroService", "CarMicroService\CarMicroService.csproj", "{C0E63BAD-808B-4DFA-B904-B435527032BF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{449B1CE7-DD18-4CE6-857C-1A08A3AF5128}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{449B1CE7-DD18-4CE6-857C-1A08A3AF5128}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{449B1CE7-DD18-4CE6-857C-1A08A3AF5128}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{449B1CE7-DD18-4CE6-857C-1A08A3AF5128}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0E63BAD-808B-4DFA-B904-B435527032BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0E63BAD-808B-4DFA-B904-B435527032BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0E63BAD-808B-4DFA-B904-B435527032BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0E63BAD-808B-4DFA-B904-B435527032BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {AD8178D8-5958-4535-AE11-2A5300D1DB4C}
+		SolutionGuid = {0A5F8921-0772-4B57-B1EA-C69F79F90580}
 	EndGlobalSection
 EndGlobal
