@@ -1,4 +1,6 @@
-﻿namespace CarMicroService.DTOs.Car
+﻿using CarMicroService.DTOs.CarType;
+
+namespace CarMicroService.DTOs.Car
 {
     public class GetCarDTO
     {
@@ -7,6 +9,8 @@
         public string Name { get; set; }    
 
         public string Description { get; set; }     
+
+        public GetCarTypeDTO CarType { get; set; }   
 
     }
 }

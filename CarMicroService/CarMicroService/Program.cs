@@ -1,5 +1,6 @@
 using CarMicroService.Data;
-using CarMicroService.Services.Car;
+using CarMicroService.Services.CarService;
+using CarMicroService.Services.CarTypeService;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -17,6 +18,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<ICarService, CarService>();
+builder.Services.AddScoped<ICarTypeService, CarTypeService>();
+
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())

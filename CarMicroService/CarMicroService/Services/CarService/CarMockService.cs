@@ -1,4 +1,4 @@
-﻿namespace CarMicroService.Services.Car
+﻿namespace CarMicroService.Services.CarService
 {
     public class CarMockService
     {

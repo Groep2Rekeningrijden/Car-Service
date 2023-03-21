@@ -2,6 +2,7 @@
 using CarMicroService.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,16 +10,18 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarMicroService.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230321122615_cartype")]
+    partial class cartype
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("CarMicroService.Model.Car", b =>
+            modelBuilder.Entity("CarMicroService.Model.CarModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -40,15 +43,6 @@ namespace CarMicroService.Migrations
                     b.HasIndex("CarTypeId");
 
                     b.ToTable("Cars");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CarTypeId = 1,
-                            Description = "benzine auto volvo v90",
-                            Name = "volvo V90"
-                        });
                 });
 
             modelBuilder.Entity("CarMicroService.Model.CarType", b =>
@@ -65,24 +59,15 @@ namespace CarMicroService.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<double>("PricePerKilometer")
-                        .HasColumnType("double");
+                    b.Property<int>("PricePerKilometer")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("CarTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Benzine auto",
-                            Name = "Benzine",
-                            PricePerKilometer = 0.11
-                        });
+                    b.ToTable("carTypes");
                 });
 
-            modelBuilder.Entity("CarMicroService.Model.Car", b =>
+            modelBuilder.Entity("CarMicroService.Model.CarModel", b =>
                 {
                     b.HasOne("CarMicroService.Model.CarType", "CarType")
                         .WithMany()

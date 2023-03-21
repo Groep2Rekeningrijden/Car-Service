@@ -2,6 +2,7 @@
 using CarMicroService.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,16 +10,18 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarMicroService.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230321125947_standardata")]
+    partial class standardata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "7.0.4")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
-            modelBuilder.Entity("CarMicroService.Model.Car", b =>
+            modelBuilder.Entity("CarMicroService.Model.CarModel", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -70,7 +73,7 @@ namespace CarMicroService.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("CarTypes");
+                    b.ToTable("carTypes");
 
                     b.HasData(
                         new
@@ -82,7 +85,7 @@ namespace CarMicroService.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CarMicroService.Model.Car", b =>
+            modelBuilder.Entity("CarMicroService.Model.CarModel", b =>
                 {
                     b.HasOne("CarMicroService.Model.CarType", "CarType")
                         .WithMany()

@@ -2,7 +2,7 @@
 
 namespace CarMicroService.Model
 {
-    public class CarModel
+    public class CarType
     {
         [Key]
         public int Id { get; set; }
@@ -11,7 +11,10 @@ namespace CarMicroService.Model
         public string Name { get; set; }
 
         [Required]
-        public string Description { get; set; }     
+        public string Description { get; set; }
+
+        [Required]
+        public double PricePerKilometer { get; set; }   
 
     }
 }
