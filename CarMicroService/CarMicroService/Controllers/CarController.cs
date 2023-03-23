@@ -2,6 +2,8 @@
 using CarMicroService.DTOs.Car;
 using CarMicroService.Services.CarService;
 using Microsoft.AspNetCore.Mvc;
+using RabbitMQ.Client;
+using System.Text;
 
 namespace CarMicroService.Controllers
 {
@@ -76,5 +78,22 @@ namespace CarMicroService.Controllers
             }
         }
 
+        [HttpGet("/rabbitMq")]
+        public async Task<ActionResult<string>> rabbitMq()
+        {
+            IConnectionFactory factory = new ConnectionFactory { HostName = "localhost", Port = 5672, UserName = "myuser", Password = "mypassword" };
+            using (IConnection connection = factory.CreateConnection())
+            {
+                IModel channel = connection.CreateModel();
+
+                channel.ExchangeDeclare("test", ExchangeType.Topic, true);
+
+                string message = "Hello World!";
+                byte[] body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish("test", "demo", null, body);
+            }       
+            return "succesfull message";
+        }
     }
 }
