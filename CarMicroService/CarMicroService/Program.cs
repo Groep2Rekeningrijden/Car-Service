@@ -3,6 +3,7 @@ using CarMicroService.Services.CarService;
 using CarMicroService.Services.CarTypeService;
 using Microsoft.EntityFrameworkCore;
 
+var FrontEndOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +21,15 @@ builder.Services.AddAutoMapper(typeof(Program).Assembly);
 builder.Services.AddScoped<ICarService, CarService>();
 builder.Services.AddScoped<ICarTypeService, CarTypeService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: FrontEndOrigins,
+                      builder =>
+                      {
+                          builder.WithOrigins("*");
+                      });
+});
+
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
@@ -36,6 +46,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors(FrontEndOrigins);
 //app.UseHttpsRedirection();
 
 app.UseAuthorization();
