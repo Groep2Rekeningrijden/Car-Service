@@ -28,7 +28,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: FrontEndOrigins,
                       builder =>
                       {
-                          builder.WithOrigins("*");
+                          builder.WithOrigins("*").AllowAnyMethod().AllowAnyHeader(); ;
                       });
 });
 
