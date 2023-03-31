@@ -1,6 +1,8 @@
 using CarMicroService.Data;
+using CarMicroService.Models.RabbitMq;
 using CarMicroService.Services.CarService;
 using CarMicroService.Services.CarTypeService;
+using MassTransit;
 using Microsoft.EntityFrameworkCore;
 
 var FrontEndOrigins = "_myAllowSpecificOrigins";
@@ -30,6 +32,15 @@ builder.Services.AddCors(options =>
                       });
 });
 
+var rabbitMqSettings = builder.Configuration.GetSection(nameof(RabbitMqSettings)).Get<RabbitMqSettings>();
+builder.Services.AddMassTransit(mt => mt.AddMassTransit(x => {
+    x.UsingRabbitMq((cntxt, cfg) => {
+        cfg.Host(rabbitMqSettings.Uri, c => {
+            c.Username(rabbitMqSettings.UserName);
+            c.Password(rabbitMqSettings.Password);
+        });
+    });
+}));
 
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())

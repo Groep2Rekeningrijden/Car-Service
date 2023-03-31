@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using CarMicroService.Data;
 using CarMicroService.DTOs.Car;
-using CarMicroService.DTOs.Car;
 using CarMicroService.Model;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,8 +1,10 @@
 ﻿using CarMicroService.DTOs.Car;
 using CarMicroService.DTOs.Car;
 using CarMicroService.Services.CarService;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using RabbitMQ.Client;
+using Rekeningrijden.RabbitMq;
 using System.Text;
 
 namespace CarMicroService.Controllers
@@ -12,10 +14,12 @@ namespace CarMicroService.Controllers
     public class CarController : ControllerBase
     {
         private readonly ICarService _CarService;
+        private readonly IPublishEndpoint _publishEndpoint;
 
-        public CarController(ICarService carService)
+        public CarController(ICarService carService, IPublishEndpoint publishEndpoint)
         {
             _CarService = carService;
+            _publishEndpoint = publishEndpoint;
         }
 
         [HttpGet]
@@ -78,21 +82,10 @@ namespace CarMicroService.Controllers
             }
         }
 
-        [HttpGet("/rabbitMq")]
-        public async Task<ActionResult<string>> rabbitMq()
+        [HttpPost("/rabbitMq")]
+        public async Task<ActionResult<string>> rabbitMq(TestRabbitMqClass dto)
         {
-            IConnectionFactory factory = new ConnectionFactory { HostName = "localhost", Port = 5672, UserName = "myuser", Password = "mypassword" };
-            using (IConnection connection = factory.CreateConnection())
-            {
-                IModel channel = connection.CreateModel();
-
-                channel.ExchangeDeclare("test", ExchangeType.Topic, true);
-
-                string message = "Hello World!";
-                byte[] body = Encoding.UTF8.GetBytes(message);
-
-                channel.BasicPublish("test", "demo", null, body);
-            }       
+            await _publishEndpoint.Publish<TestRabbitMqClass>(dto);
             return "succesfull message";
         }
     }
