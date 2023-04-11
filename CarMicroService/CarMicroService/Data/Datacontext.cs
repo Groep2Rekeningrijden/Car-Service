@@ -21,5 +21,6 @@ namespace CarMicroService.Data
 
         public DbSet<CarType> CarTypes { get; set; }    
 
+        public DbSet<CarUser> CarUsers { get; set; }
     }
 }

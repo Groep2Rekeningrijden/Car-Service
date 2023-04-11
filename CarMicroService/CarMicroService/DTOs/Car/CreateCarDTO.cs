@@ -8,6 +8,8 @@ namespace CarMicroService.DTOs.Car
 
         public string Description { get; set; }
 
-        public int CarTypeId { get; set; }
+        public Guid CarTypeId { get; set; }
+
+        public Guid UserId { get; set; }
     }
 }
