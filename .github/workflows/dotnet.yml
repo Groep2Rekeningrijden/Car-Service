@@ -21,7 +21,7 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: set directory
-      run: cd CarMicroService
+      run: cd CarMicroService/CarMicroService
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
