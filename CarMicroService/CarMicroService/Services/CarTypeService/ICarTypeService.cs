@@ -11,6 +11,6 @@ namespace CarMicroService.Services.CarTypeService
 
         public Task<GetCarTypeDTO> UpdateCarType(UpdateCarTypeDTO Dto);
 
-        public Task<bool> DeleteCarType(int id);
+        public Task<bool> DeleteCarType(Guid id);
     }
 }

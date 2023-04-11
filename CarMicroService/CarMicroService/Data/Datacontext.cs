@@ -13,8 +13,8 @@ namespace CarMicroService.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CarType>().HasData(new CarType{Id = 1, Name = "Benzine", Description = "Benzine auto", PricePerKilometer = 0.11});
-            modelBuilder.Entity<Car>().HasData(new Car { Id = 1, Name = "volvo V90", Description = "benzine auto volvo v90", CarTypeId = 1});
+            modelBuilder.Entity<CarType>().HasData(new CarType{Id = Guid.NewGuid(), Name = "Benzine", Description = "Benzine auto", PricePerKilometer = 0.11});
+            modelBuilder.Entity<Car>().HasData(new Car { Id = Guid.NewGuid(), Name = "volvo V90", Description = "benzine auto volvo v90", CarTypeId = Guid.NewGuid()});
         }
 
         public DbSet<Car> Cars { get; set; }

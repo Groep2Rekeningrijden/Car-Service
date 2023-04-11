@@ -15,7 +15,7 @@ namespace CarMicroService.Model
         public string Description { get; set; }
 
         [ForeignKey("CarType")]
-        public int CarTypeId { get; set; }
+        public Guid CarTypeId { get; set; }
 
         public CarType CarType { get; set; }
 

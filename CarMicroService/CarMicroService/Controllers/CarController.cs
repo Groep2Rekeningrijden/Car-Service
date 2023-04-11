@@ -55,7 +55,7 @@ namespace CarMicroService.Controllers
         }
 
         [HttpDelete]
-        public async Task<ActionResult> DeleteCar(int id)
+        public async Task<ActionResult> DeleteCar(Guid id)
         {
             try
             {

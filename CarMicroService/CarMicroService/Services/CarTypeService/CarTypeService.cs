@@ -78,7 +78,7 @@ namespace CarMicroService.Services.CarTypeService
             return res;
         }
 
-        public async Task<bool> DeleteCarType(int id)
+        public async Task<bool> DeleteCarType(Guid id)
         {
             try
             {
