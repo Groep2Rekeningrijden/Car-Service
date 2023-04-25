@@ -22,6 +22,12 @@ namespace CarMicroService.Controllers
             _publishEndpoint = publishEndpoint;
         }
 
+        [HttpGet("/testconnection")]
+        public string TestConnection()
+        {
+            return "Connection succesfully established";
+        }
+
         [HttpGet]
         public async Task<ActionResult<List<GetCarDTO>>> GetAllCars()
         {
