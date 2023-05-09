@@ -4,7 +4,7 @@ namespace CarMicroService.DTOs.CarType
 {
     public class GetCarTypeDTO
     {
-        public Guid Id { get; set; }
+        public Guid CarTypeId { get; set; }
 
         public string Name { get; set; }
 

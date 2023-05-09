@@ -2,7 +2,7 @@
 {
     public class UpdateCarTypeDTO
     {
-        public Guid Id { get; set; } 
+        public Guid CarTypeId { get; set; } 
 
         public string Name { get; set; }
 

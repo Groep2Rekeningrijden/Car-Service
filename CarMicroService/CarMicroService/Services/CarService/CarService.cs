@@ -39,7 +39,7 @@ namespace CarMicroService.Services.CarService
             try
             {
                 Car post = _mapper.Map<Car>(Dto);
-
+                post.Id = Guid.NewGuid();
                 _dataContext.Cars.Add(post);
                 await _dataContext.SaveChangesAsync();
             }

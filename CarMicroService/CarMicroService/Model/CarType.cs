@@ -5,7 +5,7 @@ namespace CarMicroService.Model
     public class CarType
     {
         [Key]
-        public Guid Id { get; set; }
+        public Guid CarTypeId { get; set; }
 
         [Required]
         public string Name { get; set; }

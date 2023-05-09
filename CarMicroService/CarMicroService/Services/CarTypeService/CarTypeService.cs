@@ -61,7 +61,7 @@ namespace CarMicroService.Services.CarTypeService
             GetCarTypeDTO res = new GetCarTypeDTO();
             try
             {
-                CarType? before = _dataContext.Find<CarType>(Dto.Id);
+                CarType? before = _dataContext.Find<CarType>(Dto.CarTypeId);
 
                 before.PricePerKilometer = Dto.PricePerKilometer;
 
@@ -82,7 +82,7 @@ namespace CarMicroService.Services.CarTypeService
         {
             try
             {
-                _dataContext.Remove(_dataContext.CarTypes.Single(k => k.Id == id));
+                _dataContext.Remove(_dataContext.CarTypes.Single(k => k.CarTypeId == id));
                 _dataContext.SaveChanges();
                 return true;
             }
