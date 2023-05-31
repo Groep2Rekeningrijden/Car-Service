@@ -2,10 +2,7 @@
 services:
   
   db:
-    image: postgres-extended
-    build:
-      context: .
-      dockerfile: pg-Dockerfile
+    image: fontyssa/postgres-extended
     restart: always
     environment:
       - POSTGRES_DB=vehicle
@@ -17,10 +14,7 @@ services:
       - db:/var/lib/postgresql/data
   
   car-service:
-    image: car-service
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: fontyssa/car-service
     ports:
       - "11002:80"
     depends_on:
