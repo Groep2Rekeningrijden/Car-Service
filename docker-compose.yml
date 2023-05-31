@@ -1,7 +1,7 @@
 ﻿version: '3.9'
 services:
   
-  db:
+  car-db:
     image: fontyssa/postgres-extended
     restart: always
     environment:
@@ -9,17 +9,17 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
-      - '11001:5432'
+      - '5432:5432'
     volumes:
-      - db:/var/lib/postgresql/data
+      - car-db:/var/lib/postgresql/data
   
   car-service:
     image: fontyssa/car-service
     ports:
-      - "11002:80"
+      - "80:80"
     depends_on:
-      - db
+      - car-db
 
 volumes:
-  db:
+  car-db:
     driver: local

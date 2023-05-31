@@ -13,3 +13,18 @@ Then run the following in that folder:
 poetry shell
 poetry run python pythonhelper/helper.py
 ```
+
+# Build
+
+```shell
+docker build -t fontyssa/car-service:latest -f Dockerfile .
+docker build -t fontyssa/postgres-extended:latest -f pg-Dockerfile .
+```
+
+```shell
+docker push fontyssa/car-service:latest
+```
+
+```shell
+docker push fontyssa/postgres-extended:latest
+```
