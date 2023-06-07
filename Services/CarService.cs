@@ -4,11 +4,11 @@ using VehicleService.DTOs;
 
 namespace VehicleService.Services;
 
-public class RouterApiService : IRouterApiService
+public class CarService : ICarService
 {
     private readonly DataContext _dataContext;
 
-    public RouterApiService(DataContext context)
+    public CarService(DataContext context)
     {
         _dataContext = context;
     }

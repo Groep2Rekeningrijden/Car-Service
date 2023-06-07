@@ -2,7 +2,7 @@
 
 namespace VehicleService.Services;
 
-public interface IRouterApiService
+public interface ICarService
 {
     public Task<VehicleDto?> GetVehicle(Guid vehicleId);
     public Task<List<VehicleDto>> GetFirstNVehicles(int n);

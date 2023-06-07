@@ -17,7 +17,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 });
 
 
-builder.Services.AddScoped<IRouterApiService, RouterApiService>();
+builder.Services.AddScoped<ICarService, CarService>();
 
 var app = builder.Build();
 
