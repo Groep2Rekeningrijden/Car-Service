@@ -2,10 +2,10 @@
 
 public class VehicleDto
 {
-    public VehicleDto(Guid id, string licence, string classification, string fuelType)
+    public VehicleDto(Guid id, string licence, string vehicleClassification, string fuelType)
     {
         Id = id;
-        Classification = classification;
+        VehicleClassification = vehicleClassification;
         FuelType = fuelType;
         Licence = licence;
     }
@@ -13,7 +13,7 @@ public class VehicleDto
     public Guid Id { get; set; }
     public string Licence { get; set; }
 
-    public string Classification { get; set; }
+    public string VehicleClassification { get; set; }
 
     public string FuelType { get; set; }
 }
