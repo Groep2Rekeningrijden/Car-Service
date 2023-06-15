@@ -19,6 +19,12 @@ df3 = df3.rename(
      "Europese voertuigcategorie": "classification",
      "Brandstof omschrijving": "fuelType"},
     axis=1)
+df3 = df3.replace({
+    "Benzine":"Petrol",
+    "Diesel":"Diesel",
+    "Elektriciteit":"Electricity",
+    "Waterstof":"Hydrogen",
+})
 df3 = df3.dropna(how="any", ignore_index=True)
 df3 = df3.sample(2_000_000)
 
