@@ -25,7 +25,7 @@ public class CarController : ControllerBase
     [HttpGet("/get-n")]
     public async Task<ActionResult<VehicleDto>> GetAll(int n)
     {
-        var vehicles = await _carService.GetFirstNVehicles(n);
+        var vehicles = await _carService.GetNVehicles(n);
         return vehicles.Any() ? Ok(vehicles) : NotFound();
     }
 

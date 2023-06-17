@@ -19,10 +19,12 @@ public class CarService : ICarService
         return v is null ? null : new VehicleDto(v.Id, v.Licence, v.Classification, v.FuelType);
     }
 
-    public async Task<List<VehicleDto>> GetFirstNVehicles(int n)
+    public async Task<List<VehicleDto>> GetNVehicles(int n)
     {
+        var skip = (int)(new Random().NextDouble() * _dataContext.Vehicles.Count());
         return await _dataContext.Vehicles
             .Select(v => new VehicleDto(v.Id, v.Licence, v.Classification, v.FuelType))
+            .Skip(skip)
             .Take(n)
             .ToListAsync();
     }
